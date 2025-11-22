@@ -1,0 +1,21 @@
+# Perfect Gas Simulation
+# PV = nRT
+
+# Input parameters
+n_mol=$n_mol
+T_celsius=$T_celsius
+V_L=$V_L
+
+# Constants
+R=8.314472
+
+# Computed values (formulas)
+#@ def celsius_to_kelvin(c): return c + 273.15
+#@ def liters_to_m3(L): return L / 1000.0
+
+T_kelvin=@{celsius_to_kelvin($T_celsius)}
+V_m3=@{liters_to_m3($V_L)}
+
+# Calculate pressure using ideal gas law
+# P = nRT/V
+P_calculated=@{$n_mol * 8.314472 * celsius_to_kelvin($T_celsius) / liters_to_m3($V_L)}

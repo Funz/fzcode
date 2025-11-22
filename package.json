@@ -1,0 +1,163 @@
+{
+  "name": "funz-vscode",
+  "displayName": "Funz GUI",
+  "description": "VSCode GUI for Funz parametric simulation framework",
+  "version": "0.1.0",
+  "publisher": "funz",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization",
+    "Data Science"
+  ],
+  "keywords": [
+    "funz",
+    "simulation",
+    "parametric",
+    "scientific computing",
+    "GUI"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "funz.openControlPanel",
+        "title": "Funz: Open Control Panel",
+        "icon": "$(beaker)"
+      },
+      {
+        "command": "funz.openResultsViewer",
+        "title": "Funz: Open Results Viewer",
+        "icon": "$(graph)"
+      },
+      {
+        "command": "funz.detectVariables",
+        "title": "Funz: Detect Variables in Current File"
+      },
+      {
+        "command": "funz.runSimulation",
+        "title": "Funz: Run Simulation"
+      },
+      {
+        "command": "funz.compileTemplate",
+        "title": "Funz: Compile Template"
+      },
+      {
+        "command": "funz.parseOutput",
+        "title": "Funz: Parse Output"
+      },
+      {
+        "command": "funz.refreshModels",
+        "title": "Funz: Refresh Model List"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "funz-sidebar",
+          "title": "Funz",
+          "icon": "resources/funz-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "funz-sidebar": [
+        {
+          "id": "funzModelsView",
+          "name": "Models"
+        },
+        {
+          "id": "funzVariablesView",
+          "name": "Variables"
+        },
+        {
+          "id": "funzResultsView",
+          "name": "Results"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Funz",
+      "properties": {
+        "funz.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Path to Python executable with fz package installed"
+        },
+        "funz.modelsDirectory": {
+          "type": "string",
+          "default": ".fz/models",
+          "description": "Directory containing Funz model configurations"
+        },
+        "funz.resultsDirectory": {
+          "type": "string",
+          "default": "results",
+          "description": "Default directory for simulation results"
+        },
+        "funz.maxWorkers": {
+          "type": "number",
+          "default": 4,
+          "description": "Maximum number of parallel workers for simulations"
+        },
+        "funz.autoDetectVariables": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically detect variables when opening template files"
+        },
+        "funz.defaultCalculator": {
+          "type": "string",
+          "default": "sh://bash",
+          "description": "Default calculator for running simulations"
+        }
+      }
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceExtname =~ /\\.(txt|dat|inp|template)$/",
+          "command": "funz.detectVariables",
+          "group": "funz@1"
+        },
+        {
+          "when": "resourceExtname =~ /\\.(txt|dat|inp|template)$/",
+          "command": "funz.compileTemplate",
+          "group": "funz@2"
+        }
+      ],
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "funz.parseOutput",
+          "group": "funz@1"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.0",
+    "@vscode/test-electron": "^2.3.8",
+    "@vscode/vsce": "^2.22.0"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.3"
+  }
+}

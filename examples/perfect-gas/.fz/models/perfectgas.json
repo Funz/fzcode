@@ -1,0 +1,12 @@
+{
+  "varprefix": "$",
+  "formulaprefix": "@",
+  "delim": "{}",
+  "commentline": "#",
+  "interpreter": "python",
+  "output": {
+    "temperature_K": "grep '^T_kelvin=' input.txt | cut -d= -f2",
+    "volume_m3": "grep '^V_m3=' input.txt | cut -d= -f2",
+    "pressure_Pa": "grep '^P_calculated=' input.txt | cut -d= -f2"
+  }
+}

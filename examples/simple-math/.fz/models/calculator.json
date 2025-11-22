@@ -1,0 +1,12 @@
+{
+  "varprefix": "$",
+  "formulaprefix": "@",
+  "delim": "{}",
+  "commentline": "#",
+  "interpreter": "python",
+  "output": {
+    "result_product": "grep '^product=' input.txt | cut -d= -f2",
+    "result_sum": "grep '^sum=' input.txt | cut -d= -f2",
+    "result_power": "grep '^power=' input.txt | cut -d= -f2"
+  }
+}

@@ -1,0 +1,21 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#0066CC" opacity="0.9"/>
+
+  <!-- Funz 'F' and 'z' stylized -->
+  <g fill="white">
+    <!-- Letter F -->
+    <path d="M 30 35 L 30 95 L 38 95 L 38 68 L 55 68 L 55 60 L 38 60 L 38 43 L 58 43 L 58 35 Z"/>
+
+    <!-- Letter z -->
+    <path d="M 68 60 L 68 65 L 82 80 L 68 80 L 68 88 L 95 88 L 95 83 L 81 68 L 95 68 L 95 60 Z"/>
+  </g>
+
+  <!-- Decorative parametric grid -->
+  <g stroke="white" stroke-width="1.5" fill="none" opacity="0.5">
+    <circle cx="64" cy="64" r="48"/>
+    <line x1="16" y1="64" x2="112" y2="64"/>
+    <line x1="64" y1="16" x2="64" y2="112"/>
+    <circle cx="64" cy="64" r="32"/>
+  </g>
+</svg>

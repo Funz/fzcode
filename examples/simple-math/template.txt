@@ -1,0 +1,13 @@
+# Simple Math Example
+# This demonstrates basic Funz variable and formula usage
+
+# Input variables
+x=$x
+y=$y
+
+# Computed formula
+product=@{$x * $y}
+sum=@{$x + $y}
+power=@{$x ** 2 + $y ** 2}
+
+# The run.sh script will read these values and produce outputs
